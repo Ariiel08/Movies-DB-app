@@ -52,4 +52,8 @@ export class MoviesService {
       params: params2
     }).pipe(map(resp => resp.results))
   }
+
+  resetHomePage(){
+    this.moviesPage = 1;
+  }
 }
