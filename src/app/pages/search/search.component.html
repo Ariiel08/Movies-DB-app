@@ -1,12 +1,12 @@
 <h1>Search results: <small class="text-capitalize">{{search}}</small></h1>
 
-<div *ngIf="movies.length > 0" class="row m-2 mt-5">
+<div *ngIf="movies.length > 0; else noresults" class="row m-2 mt-5">
     <h1>Movies</h1>
     <div class="col">
         <app-movies-poster-grid [movies]="movies"></app-movies-poster-grid>
     </div> 
 </div>
 
-<div class="row m-2 mt-5" *ngIf="movies.length <= 0">
-    <h1>No results found</h1>
-</div>
+<ng-template #noresults class="row m-2 mt-5">
+    <h1 *ngIf="movies.length <= 0">No results found</h1>
+</ng-template>
