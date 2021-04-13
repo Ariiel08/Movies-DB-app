@@ -1,1 +1,44 @@
-<p>movies works!</p>
+<div class="row mt-4 mb-5 animate__animated animate__fadeIn animate__faster" *ngIf="movie">
+    <div class="col-md-6">
+        <img class="img-fluid" [src]="movie.poster_path | poster" [alt]="movie.tittle">
+    </div>
+
+    <div class="col-md-6 mt-3">
+        <div class="row">
+            <div class="col ml-3" align="left">
+                <button class="btn btn-outline-info" (click)="goBack()">Go back</button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <h3>{{movie.title}}</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <star-rating [value]="movie.vote_average" totalstars="10" checkedcolor="yellow" uncheckedcolor="grey" size="20px" readonly="false"></star-rating>
+            </div>
+            <div class="col mt-1 text-white">
+                {{movie.vote_average | number: '1.1-2'}} 
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <p class="col text-white">
+                {{movie.overview}}
+            </p>
+        </div>
+
+        <div *ngIf="cast.length > 0" class="row mt-5">
+            <h3>Cast</h3>
+            <div class="col">
+                <app-cast-slideshow [cast]="cast"></app-cast-slideshow>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="col-md-2 mt-3">
+        <button class="btn btn-outline-info" (click)="goBack()">Go back</button>
+    </div> -->
+</div>

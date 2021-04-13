@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from 'src/app/interfaces/movies-response';
-import { StarRatingComponent } from 'ng-starrating';
 import { Router } from '@angular/router';
 
 @Component({

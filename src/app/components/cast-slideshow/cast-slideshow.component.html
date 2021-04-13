@@ -1,0 +1,11 @@
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div *ngFor="let actor of cast" class="swiper-slide text-white text-center">
+            <img class="img-fluid" [src]="actor.profile_path | poster" [alt]="actor.name">
+            {{actor.name}}
+        </div>
+    </div>
+
+    <div style="background-color: rgba(0, 0, 0, 0.1);" (click)="swiper.slideTo(swiper.realIndex - 5)" class="swiper-button-prev"></div>
+    <div style="background-color: rgba(0, 0, 0, 0.1);" (click)="swiper.slideTo(swiper.realIndex + 5)" class="swiper-button-next"></div>
+</div>
